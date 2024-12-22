@@ -193,37 +193,107 @@ for(i=0; i<`${cryptoData.currencies.length}`; i++){
 ///*******************************************************************************************************************************************/
 
 
-// //
+
+// Task 13: Create a new object cryptoSummary
+//          Create a new object cryptoSummary with two properties:
+
+            // date: Copy the date from the cryptoData object.
+            // totalCurrencies: Calculate and store the total number of cryptocurrencies in the currencies array.
+
+const cryptoSummary ={
+    date: [
+        cryptoData.date
+
+    ],
+    totalCurrencies: 
+            cryptoData.currencies.length
+}
+console.log(`Task13 --- Date${cryptoSummary.date}`);
+console.log(`Task13 --- Tota Currencies${cryptoSummary.totalCurrencies}`);
+
+
+//*********************************************************************************************************************************************/
+
 // Task 15: Find the currency with the name "Stack"
 // Write a function that searches for the cryptocurrency called "Stack" and returns its details (including the name, exchange rate, and year found).
 
 function find(cryptoName){
     
-for(i=0; i<`${cryptoData.currencies.length}`; i++){
-    if( (`${cryptoData.currencies[i].name}`) === cryptoName){
-        return{
-         name: cryptoData.currencies[i].name,
-        exchangeRate:cryptoData.currencies[i].exchangeRate,
-        FoundIn:cryptoData.currencies[i].foundIn
+    for(i=0; i<`${cryptoData.currencies.length}`; i++){
+        if( (`${cryptoData.currencies[i].name}`) === cryptoName){
+            return{
+             name: cryptoData.currencies[i].name,
+            exchangeRate:cryptoData.currencies[i].exchangeRate,
+            FoundIn:cryptoData.currencies[i].foundIn
+        }
+    }}
+    
     }
-}}
+    
+    console.log("Task 15---",find("Stack"));
+
+//******************************************************************************************************************************************* */
+    
+// Task 16: Create an object of crypto names and their rates
+// Create a new object where each property is the name of a cryptocurrency, and the value is its exchange rate.
+
+// Example output:
+
+// javascript
+// Copy code
+// {
+//   BitCoin: 97000,
+//   Ethereum: 3200,
+//   DogeCoin: 0.32,
+//   Stack: 2.2
+// }
+
+const crytpoNames ={
 
 }
+let property =[]
 
-console.log("Task 15---",find("Stack"));
+for(i=0; i< cryptoData.currencies.length; i++){
+    property.push(cryptoData.currencies[i].name);
+     crytpoNames[property[i]] = `${cryptoData.currencies[i].exchangeRate}`;
+    
+}
 
-///*******************************************************************************************************************************************/
+console.log(`Task 16 ---`,crytpoNames); // show
+
+//*********************************************************************************************************************************************/
 
 
 // Task 19: Check if a currency exists in the list
 // Write a function that checks whether a cryptocurrency (e.g., "Bitcoin", "Cardano") exists in the currencies array. It should return true or false.
-
-function check(crypto1,crypto2){
+let exist = false;
+function check(cr){
+    let message= "";
     for(i=0; i<`${cryptoData.currencies.length}`; i++){
-        if ((`${cryptoData.currencies[i].name}`)  === crypto1  || (`${cryptoData.currencies[i].name}`)  === crypto2)  {
-            return true;
-    }}
+      if(`${cryptoData.currencies[i].name}` === cr){
+        console.log(`Task 19 ---The currency named ${cr}  exist`);
+        break;
+      }  
+      else{
+         message = `Task 19 ---The currency named ${cr}  doesnot exist`;
+      }     
+    }
+    console.log(message);
 }
 
-console.log(check("Bitcoin","Cardano"));
+check("Bitcoin");
+check("Cardano");
+
+//*********************************************************************************************************************************************/
+
+
+// Task 17: Convert the exchange rate of all currencies to USD
+// Write a function that takes an exchange rate in a different currency (e.g., Euro, GBP, etc.) and converts all the cryptocurrency rates to USD. This will involve multiplying the exchange rate by a conversion factor.
+
+
+
+//1 euro = 1.04 USD
+
+
+
 

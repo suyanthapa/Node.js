@@ -51,3 +51,5 @@ for (i=0; i<`${cryptoData.currencies.length}`; i++){
 }
 
 
+
+
