@@ -80,6 +80,8 @@ console.log(`Task 4----After updating the foundIn Year of${cryptoData.currencies
 
 // console.log(`Before removing the cryptoCurrency Dogecoin : ${cryptoData.currencies[2].name}`);
 // delete cryptoData.currencies[2];
+
+// cryptoData.currencies.splice
 // console.log(`After removing the cryptoCurrency Dogecoin : ${cryptoData.currencies[2].name}`);
  
 // for(i=0; i<`${cryptoData.currencies.length}`; i++){
@@ -167,7 +169,7 @@ console.log(`${cryptoData.currencies[2].symbol}`); // for checking
 
 
     // console.log("Task 9");
-    // // cryptoData.currencies.sort((a,b) => a-b);
+    // // cryptoData.currencies.sort((a,b) => a-b);  if return neg 2nd vakue high
     // for(const data of cryptoData.currencies)
     
     // console.log(data);
@@ -256,7 +258,6 @@ let property =[]
 for(i=0; i< cryptoData.currencies.length; i++){
     property.push(cryptoData.currencies[i].name);
      crytpoNames[property[i]] = `${cryptoData.currencies[i].exchangeRate}`;
-    
 }
 
 console.log(`Task 16 ---`,crytpoNames); // show
@@ -293,7 +294,12 @@ check("Cardano");
 
 
 //1 euro = 1.04 USD
+function convert(currency){
+    for(i=0; i<`${cryptoData.currencies.length}`; i++){
 
 
 
+    }
+}
 
+convert("Bitcoin");
