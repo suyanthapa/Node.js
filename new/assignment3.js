@@ -92,7 +92,7 @@ transform(num,square);
 //  Write a function concatenateStrings that takes two strings, concatenates them, and returns the result. Pass this as a callback to a generic function that takes two strings and a callback.
 
 function concatenateStrings(str1,str2){
-  console.log(`Task5 ----The concatenated string is:`,(str1+str2));
+ return (`Task5 ----The concatenated string is:`+(str1+str2));
 }
 
 function generic(str1,str2,callBack){
@@ -100,7 +100,8 @@ function generic(str1,str2,callBack){
 }
 let str1 = "suyan";
 let str2 = "Thapa";
-generic(str1,str2,concatenateStrings);
+
+console.log(generic(str1,str2,concatenateStrings))
 
  //*************************************************************************************************************************************** */
 //TASK ------ 6
@@ -137,7 +138,7 @@ function chainCalculate(num1,num2,cb1,cb2){
   //pass the result of multiplying the two numbers to the callback.
 
   function delayedMultiply(number1,number2,mm){
-
+    
     setTimeout(() =>{
       let result = number1*number2;
       mm(result);
