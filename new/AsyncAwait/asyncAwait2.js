@@ -8,6 +8,7 @@ function showCurrentDate() {
 
 const task = () =>
   new Promise(function (resolve, reject) {
+    
     const intrvl = setInterval(function () {
       if (new Date().getSeconds() === 20) {
         resolve(20);
