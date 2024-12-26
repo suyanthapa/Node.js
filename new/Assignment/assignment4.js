@@ -16,7 +16,8 @@ const delay  = (seconds) => new Promise (function(resolve, reject) {
   const intrvl =  setInterval( function (){
    
     if(seconds === 0){
-      resolve(`Happy New Year `);
+      resolve(`Happy New Year  `);
+      clearInterval(intrvl);
     }
     else if (seconds === undefined){
       reject(`SECONDS UNDEFINED`)
@@ -33,12 +34,11 @@ const delay  = (seconds) => new Promise (function(resolve, reject) {
   try {
      const play =await delay(seconds);
      console.log(play)
+    
   }
   catch (error ){
     console.log(error);
   }
-  // if(seconds>=0){
-  //   delay();
-  // }
+
 }
-countdown(10);
+countdown(2);
