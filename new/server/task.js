@@ -18,15 +18,15 @@ server.get("/", function(req,res){
      result = firstnum + lastnum;
   } 
   else if (operation === 'multiply'){
-     result = firstnum + lastnum;
+     result = firstnum * lastnum;
   } 
   else if (operation === 'division'){
-     result = firstnum + lastnum;
+     result = firstnum / lastnum;
   } 
   else{
     result= " ERROR OCCURED"
   }
-   res.send({result})
+   res.send(`${result}`)
 })
 
 server.listen(9000,function(){

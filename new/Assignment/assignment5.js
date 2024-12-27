@@ -1,23 +1,34 @@
-// Countdown Timer with Promises
-// Description: Create a countdown function that takes a number of seconds as input and counts down to zero, logging each second to the console.
+// question check Assignment folder ----- assignmetn5.js
 
-// javascript
-// Copy code
-// async function countdown(seconds) {
-//   // Write a countdown timer
-// }
-// countdown(5).then(() => console.log('Countdown complete!'));
-// Hint: Use a delay function with Promise and setTimeout in a loop.
-// Goal: Build familiarity with combining asynchronous logic and loops
 
-import express from ('express');
+import express from 'express';
 
 const server = new express();
 
 server.get("/", function(req,res){
-  res.send("Hello suyan from assignmnet 5")
+  const firstnum =  parseInt(req.query.first_num);
+  const lastnum = parseInt(req.query.last_num);
+  const operation = req.query.operation;
+
+  let result;
+  if(operation === 'addition'){
+     result = firstnum + lastnum;
+  }
+  else if (operation === 'subtraction'){
+     result = firstnum + lastnum;
+  } 
+  else if (operation === 'multiply'){
+     result = firstnum * lastnum;
+  } 
+  else if (operation === 'division'){
+     result = firstnum / lastnum;
+  } 
+  else{
+    result= " ERROR OCCURED"
+  }
+   res.send(`${result}`)
 })
 
 server.listen(9000,function(){
-  console.log("Server is running on port 900")
+  console.log("Server is running on port 9000")
 })

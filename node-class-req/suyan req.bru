@@ -5,7 +5,13 @@ meta {
 }
 
 get {
-  url: http://localhost:8000
+  url: http://localhost:9000/?first_num=10&last_num=2&operation=addition
   body: none
   auth: none
+}
+
+params:query {
+  first_num: 10
+  last_num: 2
+  operation: addition
 }
