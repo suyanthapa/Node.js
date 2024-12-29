@@ -34,7 +34,6 @@ function increasingViews(){
   writeFileSync("views.json", jsonStrin, {encoding: "utf-8"});
   return currentViews;
 
-
 }
 
 export {getCurrentViews,increasingViews }
