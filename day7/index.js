@@ -3,10 +3,9 @@ import {config} from 'dotenv';
 import { getCurrentViews} from './helpers/views.js';
 import { increasingViews} from './helpers/views.js';
 import { getCountValue, reset } from './helpers/assign1.js';
-import { increaseBy10 } from './helpers/assign1.js';
-import { decreaseBy10 } from './helpers/assign1.js';
-import { addTask } from './helpers/assign2.js';
-// import { reset } from './helpers/assign1.js';
+import { increaseBy10, decreaseBy10 } from './helpers/assign1.js';
+import { addTask ,removeTask} from './helpers/assign2.js';
+
 
 
 config();
@@ -47,6 +46,14 @@ server.get("/views/tasks/add/:task", function(req,res){
 
 })
 
+
+server.get("/views/tasks/remove/:task", function(req,res){
+
+  const taskName = req.params.task;
+  // res.send("REMOVED ", taskName);/
+  res.send(removeTask(taskName));
+
+})
 
 
 

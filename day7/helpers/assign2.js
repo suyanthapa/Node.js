@@ -51,7 +51,32 @@ function addTask(name){
   writeFileSync("views.json", jsonStrin, {encoding : "utf-8"});
   return data;
 
+}
+
+function removeTask(name){
+
+  console.log("The name of task given by URL :",name);
+  console.log("Adding into the array ")
+
+  let data = getFile();
+  
+
+  // let added = value.push(name);
+  // data['tasks'].push(name) ;
+  
+  let indexNum = data['tasks'].indexOf(name);
+
+  if( indexNum === -1){
+    return "There is no such element in the array"
+  }
+  else {
+    data['tasks'].splice(indexNum,1);
+  }
+  const jsonStrin = JSON.stringify(data);
+  
+  writeFileSync("views.json", jsonStrin, {encoding : "utf-8"});
+  return data;
 
 }
 
-export { addTask}
+export { addTask, removeTask}
