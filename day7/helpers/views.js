@@ -22,7 +22,7 @@ function increasingViews(){
 
   //increment by 1
 
-  views = views +1;
+  views = views + 1;
 
   //update view variable
 
