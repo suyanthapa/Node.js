@@ -61,6 +61,7 @@ function getSpecificCarDetails(inputCar){
               make:   selectedCar.make,
               model:    selectedCar.model,
               manufacturer:  selectedCar.manufacturer
+             
         };
         }
         catch (e){
@@ -68,4 +69,27 @@ function getSpecificCarDetails(inputCar){
         }
           }
 
-export { getSpecificCarDetails}
+
+          function getAllCars(){
+
+            let data = getFile().cars;
+            let result = [];
+       
+            for(let car of data){
+              let name = car.carName;
+              let make = car.make;
+              let model = car.model;
+              let manufacturer = car.manufacturer;
+
+              result.push( {
+                carNAME: name,
+                MAKE: make,
+                MODEL: model,
+                MANUFACTURER: manufacturer
+              })
+            }
+            return result;
+          }
+
+          
+export { getSpecificCarDetails, getAllCars}

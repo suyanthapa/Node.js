@@ -5,7 +5,7 @@ import { increasingViews} from './helpers/views.js';
 import { getCountValue, reset } from './helpers/assign1.js';
 import { increaseBy10, decreaseBy10 } from './helpers/assign1.js';
 import { addTask ,removeTask} from './helpers/assign2.js';
-import { getSpecificCarDetails } from './helpers/assign3.js';
+import { getSpecificCarDetails, getAllCars } from './helpers/assign3.js';
 
 
 
@@ -66,7 +66,12 @@ server.get("/cars/:car" , function(req,res){
   res.send(output);
 })
 
-server.POST
+//assign3.js
+server.get("/car/view" , function(req,res){
+
+  
+  res.send(getAllCars());
+})
 
 
 
