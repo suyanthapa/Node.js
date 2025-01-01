@@ -1,0 +1,16 @@
+{
+  "cars" : [
+    {
+          "carName" : "cyberTruck",
+           "make": "2023",
+            "model": "S",
+            "manufacturer": "tesla"
+    },
+    {
+      "carName" : "carName2222",
+          "make": "2020",
+         "model": "X",
+         "manufacturer": "tesla"
+    }
+  ]
+}

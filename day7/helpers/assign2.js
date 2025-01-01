@@ -23,8 +23,6 @@
 
 // Let me know if you need further assistance!
 
-
-
 import { read , readFileSync, writeFileSync} from "fs";
 
 function getFile (){
