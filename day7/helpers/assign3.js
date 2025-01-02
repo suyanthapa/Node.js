@@ -65,7 +65,8 @@ function getSpecificCarDetails(inputCar){
               name:   selectedCar.carName,
               make:   selectedCar.make,
               model:    selectedCar.model,
-              manufacturer:  selectedCar.manufacturer
+              manufacturer:  selectedCar.manufacturer,
+              price :  selectedCar.price
              
         };
         }
@@ -103,7 +104,7 @@ const {cars} = getFile();
 
 for(let i=0; i< cars.length; i++)
 {
-  if(cars[i].name === details.name ){
+  if(cars[i].name === details.carName ){
      throw new Error (" Car    Already exists")
   }
 }
@@ -134,12 +135,20 @@ function deleteCar(indexNum){
 function editCar(indexNum, data1){
 
   let {cars} = getFile();
-  
-  cars[indexNum]= data1;
-  const saved = {cars};
-  let jsonStrin = JSON.stringify(saved);
-  writeFileSync("cars.json", jsonStrin, {encoding: 'utf-8'});
-  return saved;
+  try {
+    if(indexNum <= cars.length ){
+      cars[indexNum]= data1;
+      const saved = {cars};
+      let jsonStrin = JSON.stringify(saved);
+      writeFileSync("cars.json", jsonStrin, {encoding: 'utf-8'});
+      return saved;
+    }
+   
+  }
+  catch (e){
+ 
+    return "hhh";
+  }
 
   
 }

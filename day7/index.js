@@ -58,7 +58,7 @@ server.get("/views/tasks/remove/:task", function(req,res){
 })
 
 //assign3.js
-server.get("/cars/:car" , function(req,res){
+server.get("/cars/find/:car" , function(req,res){
 
   const carName = req.params.car;
   
@@ -98,7 +98,9 @@ server.put("/cars/:index", function(req,res)
 {
   const index = req.params.index;
   const data = req.body;
-  res.send(editCar(index, data));
+ 
+    res.send(editCar(index, data));
+  
 })
 
 
