@@ -37,6 +37,11 @@
 // }
 // ```
 
+// import express from ' express';
+// const server = new  express();
+
+// server.use(express.JSON());
+
 
 import { read, readFileSync, writeFileSync} from "fs";
 
@@ -70,26 +75,48 @@ function getSpecificCarDetails(inputCar){
           }
 
 
-          function getAllCars(){
+// function getAllCars(){
 
-            let data = getFile().cars;
-            let result = [];
+//             let data = getFile().cars;
+//             let result = [];
        
-            for(let car of data){
-              let name = car.carName;
-              let make = car.make;
-              let model = car.model;
-              let manufacturer = car.manufacturer;
+//             for(let car of data){
+//               let name = car.carName;
+//               let make = car.make;
+//               let model = car.model;
+//               let manufacturer = car.manufacturer;
 
-              result.push( {
-                carNAME: name,
-                MAKE: make,
-                MODEL: model,
-                MANUFACTURER: manufacturer
-              })
-            }
-            return result;
-          }
+//               result.push( {
+//                 carNAME: name,
+//                 MAKE: make,
+//                 MODEL: model,
+//                 MANUFACTURER: manufacturer
+//               })
+//             }
+//             return result;
+//           }
 
-          
-export { getSpecificCarDetails, getAllCars}
+
+function addCar(details){
+
+const {cars} = getFile();
+
+for(let i=0; i< cars.length; i++)
+{
+  if(cars[i].name === details.name ){
+     throw new Error (" Car    Already exists")
+  }
+}
+ cars.push(details);
+const write = {cars};
+const jsonStrin = JSON.stringify(write);
+
+writeFileSync("cars.json", jsonStrin, {encoding: 'utf-8'});
+return write;
+
+}
+
+
+
+
+export { getSpecificCarDetails,getFile, addCar}

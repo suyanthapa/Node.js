@@ -5,16 +5,18 @@ import { increasingViews} from './helpers/views.js';
 import { getCountValue, reset } from './helpers/assign1.js';
 import { increaseBy10, decreaseBy10 } from './helpers/assign1.js';
 import { addTask ,removeTask} from './helpers/assign2.js';
-import { getSpecificCarDetails, getAllCars } from './helpers/assign3.js';
+import { getSpecificCarDetails , getFile,addCar} from './helpers/assign3.js';
+import { error } from 'console';
 
 
 
 
 config();
-
+  
 // console.log(process.env.PORT);
 
-const server = new express();
+const server =  express();
+server.use(express.json());
 
 
 server.get("/" , function(req,res){
@@ -67,10 +69,25 @@ server.get("/cars/:car" , function(req,res){
 })
 
 //assign3.js
-server.get("/car/view" , function(req,res){
+server.get("/cars" , function(req,res){
+  // res.send(getAllCars());
+  res.send(getFile());
+})
 
-  
-  res.send(getAllCars());
+server.post("/cars", function(req,res){
+  const data = req.body;
+  console.log(data);
+  // res.send(getAllCars());
+  // res.json({ message: 'Data received susccessfully', receivedData: data });
+ 
+  try{
+    res.json(addCar(data));
+  }
+  catch (e){
+    res.status(400).json({
+      error:e.message
+    });
+  }
 })
 
 
