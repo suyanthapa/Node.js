@@ -5,10 +5,8 @@ import { increasingViews} from './helpers/views.js';
 import { getCountValue, reset } from './helpers/assign1.js';
 import { increaseBy10, decreaseBy10 } from './helpers/assign1.js';
 import { addTask ,removeTask} from './helpers/assign2.js';
-import { getSpecificCarDetails , getFile,addCar} from './helpers/assign3.js';
+import { getSpecificCarDetails , getFile,addCar, deleteCar, editCar} from './helpers/assign3.js';
 import { error } from 'console';
-
-
 
 
 config();
@@ -88,6 +86,19 @@ server.post("/cars", function(req,res){
       error:e.message
     });
   }
+})
+
+server.delete("/cars/:index", function(req,res)
+{
+  const index = req.params.index;
+  res.send(deleteCar(index));
+})
+
+server.put("/cars/:index", function(req,res)
+{
+  const index = req.params.index;
+  const data = req.body;
+  res.send(editCar(index, data));
 })
 
 

@@ -117,6 +117,33 @@ return write;
 }
 
 
+function deleteCar(indexNum){
+
+  const{cars} = getFile();
+   cars.splice(indexNum,1);
 
 
-export { getSpecificCarDetails,getFile, addCar}
+   const write = {cars};
+   const jsonStrin = JSON.stringify(write);
+   
+   writeFileSync("cars.json", jsonStrin, {encoding: 'utf-8'});
+   return write;
+
+}
+
+function editCar(indexNum, data1){
+
+  let {cars} = getFile();
+  
+  cars[indexNum]= data1;
+  const saved = {cars};
+  let jsonStrin = JSON.stringify(saved);
+  writeFileSync("cars.json", jsonStrin, {encoding: 'utf-8'});
+  return saved;
+
+  
+}
+
+
+
+export { getSpecificCarDetails,getFile, addCar, deleteCar, editCar}
