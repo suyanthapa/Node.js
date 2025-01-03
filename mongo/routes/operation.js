@@ -1,6 +1,9 @@
 import e, { Router } from "express";
-import Car from "../models/car.js";
+import Car, { insertCar } from "../models/car.js";
 const carRouter = Router();
+import { Schema, schema2 } from "../validations/validate.js";
+
+
 
 // Get all Cars
 carRouter.get("/", async function (req, res) {
@@ -21,7 +24,7 @@ carRouter.post("/", async function (req, res) {
       price,
       manufacturer,
       makeYear,
-    });
+    });                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                
     return res.json(carDetails);
   } catch (e) {
     return e.message;
@@ -43,7 +46,7 @@ carRouter.get("/:name", async function (req, res) {
 });
 
 //edit car details
-carRouter.put("/edit/:name", async function (req, res) {
+carRouter.put("/:name", async function (req, res) {
   let data = req.params.name;
   let { name, manufacturer, price, makeYear } = req.body;
   try {
@@ -81,6 +84,25 @@ carRouter.delete("/:name", async function (req, res) {
     }
   });
   
+carRouter.post("/v", async function (req,res) {
+  try{
+    const validateResult =  Schema.validate(req.body,{ abortEarly: false});
+    if(validateResult.error){
+      throw new Error (" The error received is : "+ validateResult.error.message)
+    }
+    else{
+      const newCar = await insertCar(validateResult.value);
+      return res.status(401).json({car: newCar})
+    }
+  }
+  catch (e){
+    return res.status(400).json(e.message)
+  }
+
+  
+})
+
+
 
 
 
