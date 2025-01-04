@@ -18,6 +18,6 @@ connectToDB().then( function( connectMessage){
         console.log("Server is running on ", port)
     })
 
-}).catch (function(err){
+    }).catch (function(err){
     console.error(err);
 })

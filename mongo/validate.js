@@ -5,7 +5,8 @@ const car = {
     engineType: "diesel",
     price: 5600,
     model: "XYZ",
-    colors: [{
+    colors: [
+    {
         "part": "wheel",
         "value": "black"
     }, {
@@ -46,7 +47,7 @@ const carSchema = Joi.object().keys({
       phone: Joi.string().pattern(/^[0-9]{10}$/) 
     })
 }).required()
-isStringOfFixedSize
+// isStringOfFixedSize
 const validationResult = carSchema.validate(car, { abortEarly: false });
 
 console.log(validationResult)

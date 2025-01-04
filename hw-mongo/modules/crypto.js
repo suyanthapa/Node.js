@@ -1,0 +1,45 @@
+import { Schema, model } from "mongoose";
+
+const cryptoSchema = new Schema ({
+
+  source:{
+    type: String,
+    required: true,
+  },
+
+  updatedBy:{
+    type: String,
+    required: true,
+  },
+
+  name:{
+    type: String,
+    required: true,
+  },
+
+  exchangeRate: {
+    type: Number,
+    required: true,
+  },
+
+  foundIn: {
+    type: Number,
+    required: true,
+  },
+
+ 
+},{ timeStamps: true})
+
+//date is an object or string.
+//currencies is an array of objects.
+//Inside currencies, name and exchangeRate are properties (keys) of each object.
+
+const Crypto =model("Crypto", cryptoSchema );
+
+async function addCrypto({name,exchangeRate,foundIn}) {
+  return Crypto.create({name,exchangeRate,foundIn})
+  
+}
+
+export { addCrypto};
+export default Crypto;

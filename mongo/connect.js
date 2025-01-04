@@ -8,8 +8,7 @@ const connectToDB = () =>
         return Promise.resolve (" Database Connected Succesfully")
     })
     .catch( function(err){
-        return 
-        Promise.reject(err)
+        return Promise.reject(err)
     })
 
     export default connectToDB;
