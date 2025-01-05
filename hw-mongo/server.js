@@ -3,6 +3,8 @@
 import mongoose from "mongoose";
 import express from "express";
 import connection from "./connection.js";
+import { cryptoRouter } from "./routes/operation.js";
+
 // import dotenv from 'dotenv';
 // import { addCrypto } from "./routes/operation.js";
 
@@ -10,9 +12,11 @@ import connection from "./connection.js";
 
 connection().then(function(connectMsg){
 
-  console.log(connectMsg);
-  
+  // console.log(connectMsg);
+
   const server = express();
+  server.use(express.json()); // parse the req json file
+  server.use(cryptoRouter);
   const port = process.env.PORT || 9000;
 
   server.listen(port,function(){

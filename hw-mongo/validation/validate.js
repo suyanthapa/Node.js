@@ -4,12 +4,12 @@ const Schema = Joi.object().keys({
 
 
   date: Joi.date().required(),
-  source: Joi.string().min(3).required,
+  source: Joi.string().min(3).required(),
   updatedBy: Joi.string().min(3).required(),
 
   currencies: Joi.array().items(Joi.object().keys({
 
-      name :Joi.string().min(3).required,
+      name :Joi.string().min(3).required(),
       exchangeRate: Joi.number().min(0).required(),
       foundIn: Joi.number().min(0).required(),
 
@@ -19,7 +19,7 @@ const Schema = Joi.object().keys({
 
 }).required()
 
-
+export { Schema}
 // const validatedResult = Schema.validate()
 
 

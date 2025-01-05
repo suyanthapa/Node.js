@@ -26,9 +26,12 @@ const cryptoSchema = new Schema ({
     type: Number,
     required: true,
   },
-
+  date: {
+    type: Date,
+    default: Date.now,
+  },
  
-},{ timeStamps: true})
+},{ timestamps: true})
 
 //date is an object or string.
 //currencies is an array of objects.

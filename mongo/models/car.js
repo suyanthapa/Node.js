@@ -8,7 +8,7 @@ const carSchema = new Schema({
     price: {
         type: Number,
         required: true,
-        default: 100000,
+        default: 10000,
     },
     manufacturer: {
         type: String,
