@@ -2,16 +2,7 @@ import { Schema, model } from "mongoose";
 
 const cryptoSchema = new Schema ({
 
-  source:{
-    type: String,
-    required: true,
-  },
-
-  updatedBy:{
-    type: String,
-    required: true,
-  },
-
+ /
   name:{
     type: String,
     required: true,
