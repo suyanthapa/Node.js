@@ -34,4 +34,4 @@ async function addBook({title,author,genre,rating,publishedYear}) {
   
 }
 
-export {books}
+export {books, addBook}

@@ -1,6 +1,7 @@
-import Joi from 'joi'
+import Joi from 'joi';
 
 const booksValidation = {
+add: {
 
   body: Joi.object().keys({
 
@@ -10,7 +11,10 @@ const booksValidation = {
     publishedYear: Joi.number().min(4).required(),
     rating: Joi.number().required(),
 
-  })
-}
+  })},
+  validateSingle:{
 
+    params: Joi.object().keys({ bookId: Joi.string().length(24).required(), })
+}
+}
 export { booksValidation} 

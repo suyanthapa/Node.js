@@ -1,12 +1,12 @@
 import express from 'express'
 import connection  from "./connect.js";
-import { bookRouter, specificRouter } from './routes/operation.js';
+import { bookRouter } from './routes/operation.js';
 
 connection().then(function (connectMsg){
   console.log(connectMsg)
   const server = express();
   server.use(express.json());
-  server.use("/books",bookRouter);
+  server.use("/",bookRouter);
 
   const port = process.env.port || 9000
 
