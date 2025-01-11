@@ -15,7 +15,7 @@ connectToDB().then(function (connectMessage) {
     app.use(requestLogger)
     const port = process.env.PORT || 4000;
     app.listen(port, function () {
-        console.log("Server running on PORT", port)
+        console.log("Server running on PORT no", port)
     })
 }).catch(function (err) {
     console.error(err)
