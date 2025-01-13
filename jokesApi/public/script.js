@@ -11,7 +11,7 @@ getJokes.addEventListener('click', async () => {
     const responses = await fetch(api);
     const extractData = await responses.json(); 
     const joke = extractData.value; 
-    let jokes=joke.replace(/Chuck Norris/g, "Suyan");
+    let jokes=joke.replace(/Chuck Norris/, "Bishal ");
     // Update DOM
     p.innerHTML = jokes;
     
