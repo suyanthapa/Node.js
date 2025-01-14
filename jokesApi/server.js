@@ -11,5 +11,5 @@ server.use(express.static('public'));
 server.use('/joke',jokeRouter)
 
 server.listen(PORT, ()=>{
-  console.log("Server connected successfully   ---" + PORT)
+  console.log("Server connected successfully   --on port-" + PORT)
 });
