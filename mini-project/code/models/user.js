@@ -3,20 +3,20 @@ import { model, Schema } from "mongoose";
 
 const userSchema = new Schema ({
   username:{
-       type: string,
+       type: String,
        required: true
   },
   email:{
-    type: string,
+    type: String,
     required: true
   },
   password:{
-    type: string,
+    type: String,
     required: true
   }
 }, { timestamps: true })
 
 
-const user = model( "user", userSchema);
+const User = model( "user", userSchema);
 
-export { user} 
+export default User;
