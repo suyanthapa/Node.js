@@ -3,6 +3,7 @@ import express from 'express';
 import connectToDB from './connect.js';
 import userRouter from './routes/user.js';
 import groupRouter from './routes/group.js';
+import messageRouter from './routes/message.js';
 
 config();
 
@@ -16,6 +17,10 @@ server.use(express.json())
 
 server.use(userRouter)
 server.use( groupRouter); 
+server.use( messageRouter); 
+
+server.use( "/message/file", express.static("message/file", ))
+
 
 server.listen(port , ()=>{
 
